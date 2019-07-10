@@ -1,7 +1,7 @@
 class SessionsController < ApplicationController
 
   def create
-    @user = User.find_or_create_by(name: auth['name'], uid: auth['uid']) do |u|
+    @user = User.first_or_create_by(name: auth['name'], uid: auth['uid']) do |u|
       u.name = auth['info']['name']
       u.uid = auth['info']['uid']
     end
