@@ -7,16 +7,16 @@ class SessionsController < ApplicationController
       u.email = auth['info']['email']
       u.image = auth['info']['image']
     end
- 
+
     session[:user_id] = @user.id
- 
+
     render 'welcome/home'
   end
- 
+
   private
- 
+
   def auth
     request.env['omniauth.auth']
   end
 end
-end  
+end
